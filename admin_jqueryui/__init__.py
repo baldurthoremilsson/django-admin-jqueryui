@@ -1,4 +1,9 @@
 from django.contrib.admin.options import ModelAdmin
+try:
+    from django.contrib.staticfiles.templatetags.staticfiles import static
+except ImportError:
+    static = lambda path: path
+
 
 ModelAdmin.old_media = ModelAdmin.media
 
